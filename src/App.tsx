@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import './App.css';
+
 const linksList = [
   {
     link: 'https://chatgpt.com/',
@@ -48,6 +50,11 @@ function App() {
   const handleAddItems = () => {};
   const handleGetItems = () => {};
   */
+    const [showAdd, setShowAdd] = useState(false);
+    const handleAdd = () => {
+      setShowAdd(true)
+    };
+ 
   return (
     <>
       <h1>
@@ -68,11 +75,28 @@ function App() {
             </a>
           ))}
 
-          <button className="add" title="add new">
+          <button className="add" title="add new" onClick={handleAdd}>
             <img src={'./add.png'} className="logo react" alt="React logo" />
           </button>
+       
         </div>
       </div>
+<div id="myModal" className="modal" style={{display:showAdd?'block':'none'}}>
+
+  <div className="modal-content">
+  <div className='add-modal'>
+  
+  <div><input type='text' placeholder='Link Name'/></div>
+  <div><input type='text'  placeholder='Link URL'/></div>
+  <div>
+    <label>Link logo:</label>
+    <input type='file'/></div>
+  </div>
+   <button onClick={()=>setShowAdd(false)}><span >OK</span></button> 
+
+  </div>
+
+</div>
       <p className="read-the-docs">
       All Rights Reserved © 2024 
       </p>
