@@ -1,0 +1,33 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  zoom: 70%;
+}
+.logo {
+  height: 4em;
+  max-width: 6em;
+  padding: 2em;
+  will-change: filter;
+  transition: filter 300ms;
+  filter: drop-shadow(0 0 0.1em #ffffff);
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #fff647);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #fff647);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 0.9s linear;
+  }
+}
+.card {
+  padding: 2em;
+}
+.read-the-docs {
+  color: #888;
+}
