@@ -85,8 +85,8 @@ function App() {
         <div className='date time'>
         {
         }
-        <span className='circle'>{value.getUTCHours()===0?'00':value.getUTCHours()<=10?`0${value.getUTCHours()}`:value.getUTCHours()}</span>
-        <span className='circle'>{value.getUTCMinutes()===0?'00':value.getUTCMinutes()<=10?`0${value.getUTCMinutes()}`:value.getUTCMinutes()}</span>
+        <span className='circle'>{value.getUTCHours()===0?'00':value.getUTCHours()<10?`0${value.getUTCHours()}`:value.getUTCHours()}</span>
+        <span className='circle'>{value.getUTCMinutes()===0?'00':value.getUTCMinutes()<10?`0${value.getUTCMinutes()}`:value.getUTCMinutes()}</span>
         <span className='circle'>{value.getMilliseconds()===0?'00':value.getSeconds()<10?`0${value.getSeconds()}`:value.getSeconds()}</span>
         
         </div>
