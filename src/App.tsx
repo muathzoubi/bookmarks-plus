@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
+
 
 const linksList = [
   {
@@ -50,55 +51,92 @@ function App() {
   const handleAddItems = () => {};
   const handleGetItems = () => {};
   */
-    const [showAdd, setShowAdd] = useState(false);
-    const handleAdd = () => {
-      setShowAdd(true)
+  const [showAdd, setShowAdd] = useState(false);
+  const [data, setData] = useState(linksList);
+  const [value, setValue] = useState(new Date());
+  const [time, setTime] = useState('10:20');
+  const handleAdd = () => { 
+    setShowAdd(true)
+  };
+  useEffect(()=>{
+    const interval = setInterval(() => setValue(new Date()), 1000);
+
+    return () => {
+      clearInterval(interval);
     };
- 
+
+  },[])
+  const add = async (datavalue: {
+    link: string;
+    logo: string;
+    name: string;
+  }) => {
+    await linksList.push(datavalue)
+  }
+  useEffect(() => {
+    setData(linksList)
+  }, [linksList])
   return (
     <>
+  
       <h1>
         Bookmarks <span className="plus">Plus</span>
       </h1>
+      <div id="clock">
+        <div className='date time'>
+        {
+        }
+        <span className='circle'>{value.getUTCHours()===0?'00':value.getUTCHours()<=10?`0${value.getUTCHours()}`:value.getUTCHours()}</span>
+        <span className='circle'>{value.getUTCMinutes()===0?'00':value.getUTCMinutes()<=10?`0${value.getUTCMinutes()}`:value.getUTCMinutes()}</span>
+        <span className='circle'>{value.getMilliseconds()===0?'00':value.getSeconds()<10?`0${value.getSeconds()}`:value.getSeconds()}</span>
+        
+        </div>
+</div>   
+ 
       <div className="card">
-        <button>Add +</button>
         <p>
           Your Own <code>Bookmarks</code> add your links
         </p>
         <div className="grid-group">
-          {linksList.map((i, key) => (
+          {data.map((i, key) => (
             <a href={i.link}>
               <button key={key}>
-                <img src={i.logo} className="logo" alt="Vite logo" />
+                <img src={i.logo} className="logo" alt={i.name} />
                 <span>{i.name}</span>
               </button>
             </a>
           ))}
 
           <button className="add" title="add new" onClick={handleAdd}>
-            <img src={'./add.png'} className="logo react" alt="React logo" />
+            <img src={'./add.png'} className="logo react" alt={"add logo"} />
           </button>
-       
+
         </div>
       </div>
-<div id="myModal" className="modal" style={{display:showAdd?'block':'none'}}>
+      <div id="myModal" className="modal" style={{ display: showAdd ? 'block' : 'none' }}>
 
-  <div className="modal-content">
-  <div className='add-modal'>
-  
-  <div><input type='text' placeholder='Link Name'/></div>
-  <div><input type='text'  placeholder='Link URL'/></div>
-  <div>
-    <label>Link logo:</label>
-    <input type='file'/></div>
-  </div>
-   <button onClick={()=>setShowAdd(false)}><span >OK</span></button> 
+        <div className="modal-content">
+          <div className='add-modal'>
 
-  </div>
+            <div><input type='text' placeholder='Link Name' /></div>
+            <div><input type='text' placeholder='Link URL' /></div>
+            <div>
+              <label>Link logo:</label>
+              <input type='file' /></div>
+          </div>
+          <button onClick={() => {
+            add({ link: 'test', logo: 'https://i.ibb.co/c1XStxp/OIP-1-removebg-preview.png', name: 'test' }).then(() => {
+              setData(linksList)
 
-</div>
+            })
+            setShowAdd(false)
+          }}><span >OK</span></button>
+
+        </div>
+
+      </div>
       <p className="read-the-docs">
-      All Rights Reserved © 2024 
+        All Rights Reserved © 2024
       </p>
     </>
   );

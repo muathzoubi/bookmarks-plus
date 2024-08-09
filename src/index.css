@@ -43,6 +43,7 @@ button {
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
+  max-width: 250px;
   font-weight: 500;
   font-family: inherit;
   background-color: #1a1a1a;
@@ -78,4 +79,31 @@ button:focus-visible {
 .add {
   background-color: #242424;
   border: 1px silver solid;
+}
+@media only screen and (max-width: 800px) {
+  body{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    text-align: center;
+  }
+  a{
+  }
+  .grid-group{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .logo{
+    height: 4rem;
+    width: 5rem;
+  }
+  button{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+  button span{
+    display: none;
+  }
 }

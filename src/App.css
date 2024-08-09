@@ -74,3 +74,33 @@
 .read-the-docs {
   color: #888;
 }
+
+
+#clock {
+    font-family: 'Share Tech Mono', monospace;
+    color: #ffffff;
+    text-align: center;
+    color: #daf6ff;
+    text-shadow: 0 0 20px rgb(230, 215, 10),  0 0 20px rgba(10, 175, 230, 0);
+    .time {
+        letter-spacing: 0.05em;
+        font-size: 50px;
+        padding: 1px 0;
+    }
+    .date {
+        letter-spacing: 0.1em;
+        font-size: 14px;
+    }
+    .text {
+        letter-spacing: 0.1em;
+        font-size: 12px;
+    }
+    
+}
+.circle{
+  padding: 10px;
+  font-size: large;
+  margin: 2px;
+  border: #fff6471d 1px double;
+  border-radius: 50%;
+}
