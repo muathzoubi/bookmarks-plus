@@ -54,7 +54,6 @@ function App() {
   const [showAdd, setShowAdd] = useState(false);
   const [data, setData] = useState(linksList);
   const [value, setValue] = useState(new Date());
-  const [time, setTime] = useState('10:20');
   const handleAdd = () => { 
     setShowAdd(true)
   };
