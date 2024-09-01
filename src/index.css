@@ -1,5 +1,4 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color-scheme: light dark;
@@ -8,18 +7,17 @@
   -webkit-font-smoothing: antialiased;
   text-shadow: #000000 1px 1px 10px;
   -moz-osx-font-smoothing: grayscale;
-  
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
   text-shadow: #000000 1px 1px 10px;
-
 }
 
-h1 .plus {
+.plus {
   color: #ff47d4;
+  padding-bottom: 15px;
 }
 
 .button {
@@ -33,7 +31,6 @@ h1 .plus {
   background-color: #1a1a1a;
   transition: border-color 0.25s;
   margin: 6px;
-  
 }
 
 .button:hover {
@@ -84,8 +81,6 @@ h1 .plus {
     margin: auto;
     text-align: center;
   }
-
-
 
   .grid-group {
     display: grid;

@@ -52,10 +52,10 @@ function App() {
   const handleAddItems = () => {};
   const handleGetItems = () => {};
   */
-  const [showAdd, setShowAdd] = useState(false);
+  const [showAdd, setShowAdd] = useState(true);
   const [data, setData] = useState(linksList);
   const [value, setValue] = useState(new Date());
-  const [mouse, setMouse] = useState({x:0,y:0});
+  const [mouse, setMouse] = useState({ x: 0, y: 0 });
 
   const handleAdd = () => {
     setShowAdd(true)
@@ -78,14 +78,15 @@ function App() {
   useEffect(() => {
     setData(linksList)
   }, [linksList])
-  useEffect(()=>{
-    document.body.addEventListener('mousemove',(e)=>{
+  useEffect(() => {
+    document.body.addEventListener('mousemove', (e) => {
       e.preventDefault()
-      setMouse({x:e.clientX,y:e.clientY})    })
-  },[])
+      setMouse({ x: e.clientX, y: e.clientY })
+    })
+  }, [])
   return (
     <div className="appMain" >
-      <div className='mouse-point' style={{top:mouse.y,left:mouse.x}}></div>
+      <div className='mouse-point' style={{ top: mouse.y, left: mouse.x }}></div>
       <div className="app">
 
         <h1>
@@ -108,10 +109,9 @@ function App() {
           </p>
           <div className="grid-group">
             {data.map((i, key) => (
-              <b  key={key}>
+              <a key={key} href={i.link}>
                 <Card name={i.name} img={i.logo} des="hello world" />
-
-              </b>
+              </a>
             ))}
 
             <Card img={'./add.png'} className="add" title="add new" onClick={handleAdd} />
@@ -122,21 +122,26 @@ function App() {
 
           <div className="modal-content">
             <div className='add-modal'>
+<strong className='plus'>
+Add shortcut
 
-              <div><input type='text' placeholder='Link Name' /></div>
-              <div><input type='text' placeholder='Link URL' /></div>
+</strong>
               <div>
-                <label>Link logo:</label>
-                <input type='file' /></div>
+                <label htmlFor="Link">Name</label><input type='text'/>
+                </div>
+                
+              <div>
+              <label htmlFor="Link">URL</label><input type='text'/>
+
+              </div>
+             
             </div>
             <button onClick={() => {
               add({ link: 'test', logo: 'https://i.ibb.co/c1XStxp/OIP-1-removebg-preview.png', name: 'test' }).then(() => {
                 setData(linksList)
-
               })
               setShowAdd(false)
-            }}><span ></span></button>
-
+            }}><span >OK</span></button>
           </div>
 
         </div>
