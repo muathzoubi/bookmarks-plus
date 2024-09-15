@@ -122,19 +122,19 @@ function App() {
 
           <div className="modal-content">
             <div className='add-modal'>
-<strong className='plus'>
-Add shortcut
+              <strong className='plus'>
+                Add shortcut
 
-</strong>
+              </strong>
               <div>
-                <label htmlFor="Link">Name</label><input type='text'/>
-                </div>
-                
+                <label htmlFor="Link">Name</label><input type='text' />
+              </div>
+
               <div>
-              <label htmlFor="Link">URL</label><input type='text'/>
+                <label htmlFor="Link">URL</label><input type='text' />
 
               </div>
-             
+
             </div>
             <button onClick={() => {
               add({ link: 'test', logo: 'https://i.ibb.co/c1XStxp/OIP-1-removebg-preview.png', name: 'test' }).then(() => {
