@@ -52,7 +52,7 @@ function App() {
   const handleAddItems = () => {};
   const handleGetItems = () => {};
   */
-  const [showAdd, setShowAdd] = useState(true);
+  const [showAdd, setShowAdd] = useState(false);
   const [data, setData] = useState(linksList);
   const [value, setValue] = useState(new Date());
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
