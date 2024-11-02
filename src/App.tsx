@@ -43,7 +43,6 @@ function App() {
   const [showAdd, setShowAdd] = useState(false);
   const [data, setData] = useState(linksList);
   const [value, setValue] = useState(new Date());
-  const [mouse, setMouse] = useState({ x: 0, y: 0 });
   const [values, setValues] = useState({ link: '', logo: '', name: '' });
 
 
@@ -68,12 +67,6 @@ function App() {
   useEffect(() => {
     setData(linksList)
   }, [linksList])
-  useEffect(() => {
-    document.body.addEventListener('mousemove', (e) => {
-      e.preventDefault()
-      setMouse({ x: e.clientX, y: e.clientY })
-    })
-  }, [])
   return (
     <div className="appMain"  >
       <div className="app">
